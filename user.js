@@ -36,17 +36,17 @@ const user = {
       {
         name: "Chophouse Burger",
         type: "Burgers",
-        rating: "9/10"
+        rating: "8"
       },
       {
         name: "Frankies",
         type: "Bar and Grill",
-        rating: "8/10"
+        rating: "7"
       },
       {
         name: "Chick-fil-A",
         type: "Chicken",
-        rating: "7/10"
+        rating: "1"
       }
     ]
   }

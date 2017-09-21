@@ -48,7 +48,12 @@ const getFamilyGender = (req, res, next) => {
     }
 }
 const getRestaurants = (req, res, next) => {
-    res.json({restaurants:user.restaurants});
+    if(req.query.rating){
+      var filtered = user.restaurants.filter(function(restaurant){
+          return restaurant.rating >= 2
+      })
+      return res.status(200).json(filtered)
+    } else return res.status(200).json(user.restaurants)
 }
 const getRestaurantName = (req, res, next) => {
     if(req.params.name){
@@ -117,3 +122,26 @@ module.exports = {
     getSkills,
     postSkill
 }
+
+
+// // functions in module.exports
+// module.exports = {
+//     getPeople(req, res, next){
+//         const gender = req.body.gender;
+//         if(gender){
+//             const filterByGender = people.filter(cur=>
+//             cur.gender.toLowerCase() == gender.toLowerCase());
+//             res.status(200).json(filterByGender);
+//             return;
+//         }
+//         return res.status(200).json(people);
+//     },
+//     // For put request
+//     editPerson(req,res,next){
+//         const {id} = req.parmas;
+//         const {first_name} = req.body;
+//         const person = people.find(cur => cur.id == id);
+//         person.first_name = first_name;
+//         return res.status(200).json(people);
+//     }
+// }
