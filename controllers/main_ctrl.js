@@ -48,12 +48,13 @@ const getFamilyGender = (req, res, next) => {
     }
 }
 const getRestaurants = (req, res, next) => {
-    if(req.query.rating){
-      var filtered = user.restaurants.filter(function(restaurant){
-          return restaurant.rating >= 2
-      })
-      return res.status(200).json(filtered)
-    } else return res.status(200).json(user.restaurants)
+    let restaurants = user.restaurants;
+    if(req.query.rating) {
+        restaurants = restaurants.filter(val => {
+            return val.rating >= req.query.rating;
+        })
+    }
+    res.status(200).json(restaurants)
 }
 const getRestaurantName = (req, res, next) => {
     if(req.params.name){

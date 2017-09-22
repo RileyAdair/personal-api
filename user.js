@@ -34,7 +34,7 @@ const user = {
     ],
     restaurants: [
       {
-        name: "Chophouse Burger",
+        name: "Chophouse",
         type: "Burgers",
         rating: "8"
       },
